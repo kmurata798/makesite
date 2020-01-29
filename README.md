@@ -48,7 +48,7 @@ If you get stuck on any step, be sure to print the output to `stdout`!
 
 #### Requirements
 
-- [ ] Read in the contents of the provided `first-post.txt` file.
+- [x] Read in the contents of the provided `first-post.txt` file.
 - [ ] Edit the provided HTML template (`layout.html`) to display the contents of `first-post.txt`.
 - [ ] Render the contents of `first-post.txt` using Go Templates.
 - [ ] Write the HTML template to the filesystem to a file. Name it `first-post.html`.
