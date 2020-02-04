@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 type content struct {
@@ -37,12 +38,29 @@ func renderTemplate(filename string, data string) {
 		panic(err)
 	}
 }
+func filterInput(input string) string {
+	ext := ".html"
+	s := strings.Split(input, ".")[0] + ext
+	return s
+	// char := input
+	// new_input := ""
+	// for i := 0; i <= len(input); i++ {
+	// 	if char[i] != "." {
+	// 		new_input += char[i]
+	// 	}
+	// 	else {
+	// 		return
+	// 	}
+	// }
+}
 
-func writeTemplateToFile(filename string, data string) {
-	c := content{Description: data}
-	t := template.Must(template.New("template.tmpl").ParseFiles(filename))
+func writeTemplateToFile(templateName string, data string) {
+	c := content{Description: readFile(data)}
+	t := template.Must(template.New("template.tmpl").ParseFiles(templateName))
 
-	f, err := os.Create("first-post.html")
+	filter := filterInput(data)
+	// f, err := os.Create(arg[:len(arg)-4] + ".html")
+	f, err := os.Create(filter)
 	if err != nil {
 		panic(err)
 	}
@@ -55,6 +73,7 @@ func writeTemplateToFile(filename string, data string) {
 }
 
 func main() {
-	renderTemplate("template.tmpl", readFile("first-post.txt"))
-	writeTemplateToFile("template.tmpl", readFile("first-post.txt"))
+	arg := os.Args[1]
+	renderTemplate("template.tmpl", readFile(arg))
+	writeTemplateToFile("template.tmpl", arg)
 }
