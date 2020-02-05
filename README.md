@@ -77,7 +77,7 @@ and run the program using that file...
 - [x] Use the flag to find all `.txt` files in the given directory. Print them to `stdout`.
 - [x] With the list of `.txt` files you found, generate an HTML page for each.
 - [x] Run `./makesite --dir=.` to test in your local directory.
-- [ ] **Add, commit, and push to GitHub**.
+- [x] **Add, commit, and push to GitHub**.
 
 #### v1.1 Stretch Challenges
 
