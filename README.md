@@ -1,5 +1,7 @@
 # 🔗 makesite
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/kmurata798/makesite)](https://goreportcard.com/report/github.com/kmurata798/makesite) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ed40f9f3ecf46709879d5fbac28fd9b)](https://www.codacy.com/app/kmurata798/makesite?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kmurata798/makesite&amp;utm_campaign=Badge_Grade)
+
 _Create your own custom Static Site Generator (like [Jekyll](https://jekyllrb.com/) or [Hugo](https://gohugo.io/)) by cloning and fulfilling the requirements in this repo!_
 
 ### 📚 Table of Contents
@@ -65,6 +67,36 @@ and run the program using that file...
 #### Stretch Challenges
 
 - [ ] Use Bootstrap, or another CSS framework, to enhance the style and readability of your template. _Get creative! Writing your very own website generator is a great opportunity to broadcast your style, personality, and development preferences to the world!_
+
+### v1.1
+
+#### v1.1 Requirements
+
+- [x] Create 3 new `.txt` files for testing in the same directory as your project.
+- [ ] Add a new flag to the `makesite` command named `dir`.
+- [ ] Use the flag to find all `.txt` files in the given directory. Print them to `stdout`.
+- [ ] With the list of `.txt` files you found, generate an HTML page for each.
+- [ ] Run `./makesite --dir=.` to test in your local directory.
+- [ ] **Add, commit, and push to GitHub**.
+
+#### v1.1 Stretch Challenges
+
+- [ ] Recursively find all `.txt` files in the given directory, as well as it's subdirectories. Print them to `stdout` to make sure. Generate an HTML page for each.
+- [ ] When your program finishes, print: `Success! Generated 5 pages.` The `Success!` substring must be <span style="color: green; font-weight:bold;">bold green</span>, and the count (`5`) must be **bold**.
+- [ ] Modify the success message to read: `Success! Generated 5 pages (18.2kB total).` Calculate the total by summing the size of each HTML file, then converting the total to kilobytes. Always return one significant digit after the decimal point.
+- [ ] Determine how long it took to execute your static site generator. Modify the success message to read: `Success! Generated 5 pages (18.2kB total) in 3.25 seconds.` Always return two significant digits after the decimal point.
+- [ ] Test your solutions to these stretch challenges on many different directories containing `.txt` files. Are there any ways to make your code faster?
+
+### v1.2
+
+#### v1.2 Requirements
+
+- [ ] Initialize Go modules in your project.
+- [ ] Add any third party library to your project to enhance it's functionality. Some ideas you might consider include **_(CHOOSE ONLY ONE)_**:
+    - [ ] Translating page content using Google Translate.
+    - [ ] Parse Markdown (`.md`) files and transform them into HTML. `#` through `######` should translate to `<h1>` through `<h6>` elements.
+    - [ ] **_FILL IN THE BLANK_**: `I will use the __________________________________ library. The documentation is located at __________________________________. My goal is to use it to __________________________________.`
+- [ ] **Add, commit, and push to GitHub**.
 
 ## Resources
 
