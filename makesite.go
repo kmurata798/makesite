@@ -50,8 +50,7 @@ func renderTemplate(filename string, data string) {
 	c := content{Description: data}
 	t := template.Must(template.New("template.tmpl").ParseFiles(filename))
 
-	var err error
-	err = t.Execute(os.Stdout, c)
+	err := t.Execute(os.Stdout, c)
 	if err != nil {
 		panic(err)
 	}

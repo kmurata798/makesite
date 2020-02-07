@@ -64,6 +64,9 @@ and run the program using that file...
 - [x] Update the `save` function to use the input filename to generate a new HTML file. For example, if the input file is named `latest-post.txt`, the generated HTML file should be named `latest-post.html`.
 - [x] Add, commit, and push to GitHub.
 
+GitHub Repository Commit for Makesite MVP completion:
+(https://github.com/kmurata798/makesite/commit/bfc227a086376dfb844c51d2dfd2c67d40cff548)
+
 #### Stretch Challenges
 
 - [ ] Use Bootstrap, or another CSS framework, to enhance the style and readability of your template. _Get creative! Writing your very own website generator is a great opportunity to broadcast your style, personality, and development preferences to the world!_
