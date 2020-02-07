@@ -15,6 +15,11 @@ type content struct {
 }
 
 func readFile(name string) string {
+	/*
+		Makesite MVP
+
+		collects data from file
+	*/
 	fileContents, err := ioutil.ReadFile(name)
 	if err != nil {
 		panic(err)
@@ -24,6 +29,11 @@ func readFile(name string) string {
 }
 
 func writeFile(name string, data string) {
+	/*
+		Makesite MVP
+
+		Writes data onto file
+	*/
 	bytesToWrite := []byte(data)
 	err := ioutil.WriteFile(name, bytesToWrite, 0644)
 	if err != nil {
@@ -32,6 +42,11 @@ func writeFile(name string, data string) {
 }
 
 func renderTemplate(filename string, data string) {
+	/*
+		Makesite MVP
+
+		Print out .html template onto the terminal to check
+	*/
 	c := content{Description: data}
 	t := template.Must(template.New("template.tmpl").ParseFiles(filename))
 
@@ -43,6 +58,11 @@ func renderTemplate(filename string, data string) {
 }
 
 func writeTemplateToFile(templateName string, fileName string) {
+	/*
+		MakeSite MVP
+
+		Creates new template with the filename given
+	*/
 	c := content{Description: readFile(fileName)}
 	t := template.Must(template.New("template.tmpl").ParseFiles(templateName))
 
@@ -61,8 +81,10 @@ func writeTemplateToFile(templateName string, fileName string) {
 
 func filterInput(input string) string {
 	/*
-		Traverse through input until you reach '.', then add '.html' to the end.
-		return s
+		Makesite v1.1
+
+			Traverse through input until you reach '.', then add '.html' to the end.
+			return s
 	*/
 	ext := ".html"
 	s := strings.Split(input, ".")[0] + ext
@@ -70,6 +92,13 @@ func filterInput(input string) string {
 }
 
 func parser() {
+	/*
+		Makesite v1.1
+
+			Collects files in given directory,
+			checks if file includes '.txt',
+			creates a '.html' file for the .txt files
+	*/
 	var dir string
 	flag.StringVar(&dir, "dir", "", "this is the directory")
 	flag.Parse()
@@ -83,7 +112,6 @@ func parser() {
 	}
 
 	for _, file := range files {
-		// s := strings.Split(file, ".")
 		if filenameCheck(file.Name()) == true {
 			fmt.Println(file.Name())
 			writeTemplateToFile("template.tmpl", file.Name())
@@ -92,6 +120,13 @@ func parser() {
 }
 
 func filenameCheck(filename string) bool {
+	/*
+		makesite v1.1
+
+		checks if filename includes .txt,
+		if so, returns True
+		else, returns false
+	*/
 	tail := "txt"
 	for i := range filename {
 		if filename[i] == '.' {
@@ -106,8 +141,8 @@ func filenameCheck(filename string) bool {
 }
 
 func main() {
-	// arg := os.Args[1]
-	parser()
-	// renderTemplate("template.tmpl", readFile(arg))
-	// writeTemplateToFile("template.tmpl", arg)
+	// arg := os.Args[1] // Makesite MVP
+	parser() //Makesite v1.1
+	// renderTemplate("template.tmpl", readFile(arg)) //makesite MVP
+	// writeTemplateToFile("template.tmpl", arg) //makesite MVP
 }
