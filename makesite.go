@@ -109,6 +109,7 @@ func parser() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fdsa
 
 	for _, file := range files {
 		if filenameCheck(file.Name()) == true {
