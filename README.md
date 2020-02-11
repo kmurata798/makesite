@@ -98,7 +98,7 @@ GitHub Repository Commit for Makesite MVP completion:
 - [x] Add any third party library to your project to enhance it's functionality. Some ideas you might consider include **_(CHOOSE ONLY ONE)_**:
     - [x] Translating page content using Google Translate.
     - [ ] Parse Markdown (`.md`) files and transform them into HTML. `#` through `######` should translate to `<h1>` through `<h6>` elements.
-    - [ ] **_FILL IN THE BLANK_**: `I will use the _Google Translate_ library. The documentation is located at _https://cloud.google.com/translate/docs_. My goal is to use it to _translate the .txt file contents to specified language_.`
+    - [x] **_FILL IN THE BLANK_**: `I will use the _Google Translate_ library. The documentation is located at _https://cloud.google.com/translate/docs_. My goal is to use it to _translate the .txt file contents to specified language_.`
 - [ ] **Add, commit, and push to GitHub**.
 
 ## Resources
