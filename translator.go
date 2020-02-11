@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"log"
 
@@ -9,7 +10,13 @@ import (
 	"golang.org/x/text/language"
 )
 
-func translator() {
+func translator(text string) {
+	var lang string
+	flag.StringVar(&lang, "lang", "es", "This is the language you want to translate, inputting google's language abbreviations.")
+	flag.Parse()
+
+	fmt.Println("Language:", lang)
+
 	ctx := context.Background()
 
 	// Creates a client.
@@ -19,9 +26,9 @@ func translator() {
 	}
 
 	// Sets the text to translate.
-	text := "Hello, world!"
+	// text := "Hello, world!"
 	// Sets the target language.
-	target, err := language.Parse("es")
+	target, err := language.Parse(lang)
 	if err != nil {
 		log.Fatalf("Failed to parse target language: %v", err)
 	}

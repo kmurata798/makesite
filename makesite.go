@@ -28,33 +28,33 @@ func readFile(name string) string {
 
 }
 
-func writeFile(name string, data string) {
-	/*
-		Makesite MVP
+// func writeFile(name string, data string) {
+// 	/*
+// 		Makesite MVP
 
-		Writes data onto file
-	*/
-	bytesToWrite := []byte(data)
-	err := ioutil.WriteFile(name, bytesToWrite, 0644)
-	if err != nil {
-		panic(err)
-	}
-}
+// 		Writes data onto file
+// 	*/
+// 	bytesToWrite := []byte(data)
+// 	err := ioutil.WriteFile(name, bytesToWrite, 0644)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// }
 
-func renderTemplate(filename string, data string) {
-	/*
-		Makesite MVP
+// func renderTemplate(filename string, data string) {
+// 	/*
+// 		Makesite MVP
 
-		Print out .html template onto the terminal to check
-	*/
-	c := content{Description: data}
-	t := template.Must(template.New("template.tmpl").ParseFiles(filename))
+// 		Print out .html template onto the terminal to check
+// 	*/
+// 	c := content{Description: data}
+// 	t := template.Must(template.New("template.tmpl").ParseFiles(filename))
 
-	err := t.Execute(os.Stdout, c)
-	if err != nil {
-		panic(err)
-	}
-}
+// 	err := t.Execute(os.Stdout, c)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// }
 
 func writeTemplateToFile(templateName string, fileName string) {
 	/*
@@ -99,7 +99,7 @@ func parser() {
 			creates a '.html' file for the .txt files
 	*/
 	var dir string
-	flag.StringVar(&dir, "dir", "", "this is the directory")
+	flag.StringVar(&dir, "dir", "", "This is the directory.")
 	flag.Parse()
 
 	fmt.Println("Directory:", dir)
@@ -141,8 +141,8 @@ func filenameCheck(filename string) bool {
 
 func main() {
 	// arg := os.Args[1] // Makesite MVP
-	// parser() //Makesite v1.1
-	translator()
+	parser() //Makesite v1.1
+	// translator()
 	// renderTemplate("template.tmpl", readFile(arg)) //makesite MVP
 	// writeTemplateToFile("template.tmpl", arg) //makesite MVP
 }
