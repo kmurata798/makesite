@@ -141,7 +141,8 @@ func filenameCheck(filename string) bool {
 
 func main() {
 	// arg := os.Args[1] // Makesite MVP
-	parser() //Makesite v1.1
+	// parser() //Makesite v1.1
+	translator()
 	// renderTemplate("template.tmpl", readFile(arg)) //makesite MVP
 	// writeTemplateToFile("template.tmpl", arg) //makesite MVP
 }
