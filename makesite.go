@@ -113,7 +113,7 @@ func parser() {
 	for _, file := range files {
 		if filenameCheck(file.Name()) == true {
 			fmt.Println(file.Name())
-			writeTemplateToFile("templote.tmpl", file.Name())
+			writeTemplateToFile("template.tmpl", file.Name())
 		}
 	}
 }
