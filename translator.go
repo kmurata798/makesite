@@ -21,7 +21,7 @@ func translator() {
 	// Sets the text to translate.
 	text := "Hello, world!"
 	// Sets the target language.
-	target, err := language.Parse("ru")
+	target, err := language.Parse("es")
 	if err != nil {
 		log.Fatalf("Failed to parse target language: %v", err)
 	}
