@@ -119,9 +119,12 @@ func parser() {
 			checks if file includes '.txt',
 			creates a '.html' file for the .txt files
 	*/
+	/* type, -dir=[name of directory you want to scan], to search for all .txt files you want to convert into a template.
+	Default = current directory */
 	var dir string
 	flag.StringVar(&dir, "dir", ".", "This is the directory.")
 
+	// type, -lang=[google language abbreviation], to choose translation. Default = espanol
 	var lang string
 	flag.StringVar(&lang, "lang", "es", "This is the language you want to translate, inputting google's language abbreviations.")
 	flag.Parse()
@@ -138,8 +141,8 @@ func parser() {
 	for _, file := range files {
 		if filenameCheck(file.Name()) == true {
 			fmt.Println(file.Name())
-			writeTranslate(file.Name(), lang) // Makesite v1.2 Google translate function
-			writeTemplateToFile(lang, "template.tmpl", file.Name())
+			writeTranslate(file.Name(), lang)                       // Makesite v1.2 Google translate function
+			writeTemplateToFile(lang, "template.tmpl", file.Name()) // writes file contents into newly-created template
 		}
 	}
 }
