@@ -18,7 +18,7 @@ func readFile(name string) string {
 	/*
 		Makesite MVP
 
-		collects data from file
+			Collects data from file
 	*/
 	fileContents, err := ioutil.ReadFile(name)
 	if err != nil {
@@ -32,7 +32,7 @@ func readFile(name string) string {
 // 	/*
 // 		Makesite MVP
 
-// 		Writes data onto file
+// 			Writes data onto file
 // 	*/
 // 	bytesToWrite := []byte(data)
 // 	err := ioutil.WriteFile(name, bytesToWrite, 0644)
@@ -43,7 +43,9 @@ func readFile(name string) string {
 
 func writeTranslate(filename string, lang string) {
 	/*
-		Reads/translates the .txt files, writes them into a template file
+		Makesite v1.2
+
+			Reads/translates the .txt files, writes them into a template file
 	*/
 	FileText := readFile(filename)
 
@@ -63,7 +65,7 @@ func writeTranslate(filename string, lang string) {
 // 	/*
 // 		Makesite MVP
 
-// 		Print out .html template onto the terminal to check
+// 			Print out .html template onto the terminal to check
 // 	*/
 // 	c := content{Description: data}
 // 	t := template.Must(template.New("template.tmpl").ParseFiles(filename))
@@ -78,7 +80,7 @@ func writeTemplateToFile(lang string, templateName string, fileName string) {
 	/*
 		MakeSite MVP
 
-		Creates new template with the filename given
+			Creates new template with the filename given
 	*/
 
 	c := content{Description: readFile(fileName)}
@@ -136,9 +138,7 @@ func parser() {
 	for _, file := range files {
 		if filenameCheck(file.Name()) == true {
 			fmt.Println(file.Name())
-			// translateText(lang, readFile(file.Name()))
-			writeTranslate(file.Name(), lang)
-
+			writeTranslate(file.Name(), lang) // Makesite v1.2 Google translate function
 			writeTemplateToFile(lang, "template.tmpl", file.Name())
 		}
 	}
@@ -148,9 +148,9 @@ func filenameCheck(filename string) bool {
 	/*
 		makesite v1.1
 
-		checks if filename includes .txt,
-		if so, returns True
-		else, returns false
+			checks if filename includes .txt,
+			if so, returns True
+			else, returns false
 	*/
 	tail := "txt"
 	for i := range filename {
@@ -168,8 +168,7 @@ func filenameCheck(filename string) bool {
 func main() {
 	// arg := os.Args[1] // Makesite MVP
 
-	parser() //Makesite v1.1
-	// translateText("es", "hi there!")
+	parser() //Makesite v1.1 + v1.2
 	// renderTemplate("template.tmpl", readFile(arg)) //makesite MVP
 	// writeTemplateToFile("template.tmpl", arg) //makesite MVP
 }
