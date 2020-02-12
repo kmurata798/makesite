@@ -99,7 +99,7 @@ GitHub Repository Commit for Makesite MVP completion:
     - [x] Translating page content using Google Translate.
     - [ ] Parse Markdown (`.md`) files and transform them into HTML. `#` through `######` should translate to `<h1>` through `<h6>` elements.
     - [x] **_FILL IN THE BLANK_**: `I will use the _Google Translate_ library. The documentation is located at _https://cloud.google.com/translate/docs_. My goal is to use it to _translate the .txt file contents to specified language_.`
-- [ ] **Add, commit, and push to GitHub**.
+- [x] **Add, commit, and push to GitHub**.
 
 ## Resources
 

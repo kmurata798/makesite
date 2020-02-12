@@ -41,6 +41,24 @@ func readFile(name string) string {
 // 	}
 // }
 
+func writeTranslate(filename string, lang string) {
+	/*
+		Reads/translates the .txt files, writes them into a template file
+	*/
+	FileText := readFile(filename)
+
+	contents, error := translateText(lang, FileText)
+	if error != nil {
+		panic(error)
+	}
+	bytesToWrite := []byte(contents)
+
+	err := ioutil.WriteFile(filename, bytesToWrite, 0644)
+	if err != nil {
+		panic(err)
+	}
+}
+
 // func renderTemplate(filename string, data string) {
 // 	/*
 // 		Makesite MVP
@@ -56,12 +74,13 @@ func readFile(name string) string {
 // 	}
 // }
 
-func writeTemplateToFile(templateName string, fileName string) {
+func writeTemplateToFile(lang string, templateName string, fileName string) {
 	/*
 		MakeSite MVP
 
 		Creates new template with the filename given
 	*/
+
 	c := content{Description: readFile(fileName)}
 	t := template.Must(template.New("template.tmpl").ParseFiles(templateName))
 
@@ -99,10 +118,14 @@ func parser() {
 			creates a '.html' file for the .txt files
 	*/
 	var dir string
-	flag.StringVar(&dir, "dir", "", "This is the directory.")
+	flag.StringVar(&dir, "dir", ".", "This is the directory.")
+
+	var lang string
+	flag.StringVar(&lang, "lang", "es", "This is the language you want to translate, inputting google's language abbreviations.")
 	flag.Parse()
 
 	fmt.Println("Directory:", dir)
+	fmt.Println("Language:", lang)
 
 	files, err := ioutil.ReadDir(dir)
 
@@ -113,7 +136,10 @@ func parser() {
 	for _, file := range files {
 		if filenameCheck(file.Name()) == true {
 			fmt.Println(file.Name())
-			writeTemplateToFile("template.tmpl", file.Name())
+			// translateText(lang, readFile(file.Name()))
+			writeTranslate(file.Name(), lang)
+
+			writeTemplateToFile(lang, "template.tmpl", file.Name())
 		}
 	}
 }
@@ -141,8 +167,9 @@ func filenameCheck(filename string) bool {
 
 func main() {
 	// arg := os.Args[1] // Makesite MVP
+
 	parser() //Makesite v1.1
-	// translator()
+	// translateText("es", "hi there!")
 	// renderTemplate("template.tmpl", readFile(arg)) //makesite MVP
 	// writeTemplateToFile("template.tmpl", arg) //makesite MVP
 }

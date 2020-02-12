@@ -1,1 +1,1 @@
-This is the test file for makesite.
+Este es el archivo de prueba para makesite.
